@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mb-4">Video Tutorial</h2>
+            <p>En este video se explica cómo utilizar la herramienta de predicción de precios de cierre de acciones. Se muestran las métricas MSE, MAE y R²:</p>
+            <ul>
+                <li><strong>MSE (Error Cuadrático Medio):</strong> Mide la media de los errores al cuadrado. Valores más bajos indican mejor ajuste.</li>
+                <li><strong>MAE (Error Absoluto Medio):</strong> Indica el promedio de los errores absolutos. Valores más bajos indican mayor precisión.</li>
+                <li><strong>R² (Coeficiente de Determinación):</strong> Mide la proporción de la varianza de la variable dependiente que es predecible a partir de las variables independientes. Valores cercanos a 1 indican buen ajuste.</li>
+            </ul>
+            <p>Ejemplo de uso: Supón que usas la herramienta de predicción durante un mes. Obtén las métricas de cada día y compáralas. Por ejemplo, si el MAE este mes ha sido 1%, significa que, de media, la herramienta se ha equivocado en un 1% en el valor de cierre diario.</p>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video class="embed-responsive-item" controls>
+                    <source src="{{ url_for('static', filename='video/tutorial.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

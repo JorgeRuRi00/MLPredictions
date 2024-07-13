@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Predictions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">ML Predictions</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('multimedia') }}">Multimedia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('predictions') }}">Predicciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="display-4">ML Predictions</h1>
+        <p class="lead">Bienvenido a la herramienta de predicción basada en Machine Learning. Cargue sus datos y obtenga predicciones y análisis detallados.</p>
+        <img src="{{ url_for('static', filename='images/logo_imf.jpg') }}" alt="IMF Logo" class="img-fluid mb-4" style="max-width: 200px;">
+        <h2>Pasos para usar la herramienta:</h2>
+        <ol>
+            <li>Vaya a la sección de <a href="{{ url_for('predictions') }}">Predicciones</a> y suba su archivo de datos (CSV o Excel).</li>
+            <li>Espere a que se realicen las predicciones.</li>
+            <li>Descargue los resultados y visualice las métricas generadas.</li>
+        </ol>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

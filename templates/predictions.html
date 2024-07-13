@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Predicciones</h2>
+    <form action="{{ url_for('predictions') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Subir archivo CSV o Excel:</label>
+            <input type="file" name="file" class="form-control-file" id="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Predecir</button>
+    </form>
+
+    {% if tables %}
+    <h3 class="mt-4">Resultados de las predicciones</h3>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+
+    <h4>Métricas del modelo:</h4>
+    <ul>
+        <li>MSE: {{ metrics.mse }}</li>
+        <li>MAE: {{ metrics.mae }}</li>
+        <li>R²: {{ metrics.r2 }}</li>
+    </ul>
+
+    <h4>Gráfica de Predicciones vs Valores Reales:</h4>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de Predicciones vs Valores Reales" class="img-fluid">
+
+    <a href="{{ url_for('download_predictions') }}" class="btn btn-success mt-2">Descargar predicciones</a>
+    {% endif %}
+</div>
+{% endblock %}
